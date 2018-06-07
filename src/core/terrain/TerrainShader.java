@@ -57,9 +57,15 @@ public class TerrainShader extends ShaderProgram {
 		
 		addUniform("heightMap");
 		addUniform("mapTexture");
+		addUniform("normalMap");
 		
 		addUniform("flatTerrain");
-	
+		
+		
+		//sun
+		addUniform("sun.ambientStrengh");
+		addUniform("sun.color");
+		addUniform("sun.direction");
 			
 	}
 	
@@ -94,12 +100,18 @@ public class TerrainShader extends ShaderProgram {
 		
 		loadInt("heightMap", 0);
 		loadInt("mapTexture", 1);
+		loadInt("normalMap", 2);
 		
 		int flat = 0;
 		if (terrain.isFlat()) {
 			flat = 1;
 		}
 		loadInt("flatTerrain", flat);
+		
+		Sun sun = Sun.getInstance();
+		loadVector("sun.color", sun.getColor());
+		loadVector("sun.direction", sun.getDirection());
+		loadFloat("sun.ambientStrengh", sun.getAmbient());
 		
 	}
 	

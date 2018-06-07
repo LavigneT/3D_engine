@@ -14,7 +14,7 @@ import core.texture.Texture2D;
 
 public class ImageLoader {
 	
-	public Texture2D loadTexture3(String filename, boolean mitMap) {
+	public static Texture2D loadTexture(String filename, boolean mitMap) {
 		int textureID = GL11.glGenTextures();
 		
 		GL11.glBindTexture(GL11.GL_TEXTURE_2D, textureID);
@@ -57,7 +57,7 @@ public class ImageLoader {
 		return new Texture2D(width, height, textureID);
 	}
 	
-	private ByteBuffer getBuffer(File file, IntBuffer... data) throws IOException {
+	private static ByteBuffer getBuffer(File file, IntBuffer... data) throws IOException {
 		String format = file.getName().split("\\.")[1].toLowerCase();
 		ByteBuffer buffer = null;
 		if(format.equals("bmp") || format.equals("jpg") || format.equals("jpeg")) {

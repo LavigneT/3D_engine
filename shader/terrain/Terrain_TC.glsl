@@ -15,13 +15,13 @@ void main()
 
 	if(gl_InvocationID == 0)
 	{
-			gl_TessLevelOuter[AB] = 1;
-			gl_TessLevelOuter[BC] = 1;
-			gl_TessLevelOuter[CD] = 1;
-			gl_TessLevelOuter[DA] = 1;
+			gl_TessLevelOuter[AB] = 4;
+			gl_TessLevelOuter[BC] = 4;
+			gl_TessLevelOuter[CD] = 4;
+			gl_TessLevelOuter[DA] = 4;
 	
-			gl_TessLevelInner[0] = 1;
-			gl_TessLevelInner[1] = 1;
+			gl_TessLevelInner[0] = 4;
+			gl_TessLevelInner[1] = 4;
 	}
 	
 	mapCoord_TE[gl_InvocationID] = mapCoord_TC[gl_InvocationID];

@@ -1,6 +1,6 @@
 #default terrain
 
-size 1000
+size 3000
 scaleY 0
 
 #lod_ranges

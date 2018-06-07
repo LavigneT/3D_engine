@@ -1,6 +1,6 @@
 #version 430
 
-layout(quads, fractional_odd_spacing, ccw) in;
+layout(quads, fractional_even_spacing, ccw) in;
 
 uniform sampler2D heightMap;
 uniform int flatTerrain;
@@ -29,7 +29,7 @@ void main(){
 
 		float height = texture(heightMap, mapCoord).r;
 		if(flatTerrain == 0) {
-			height *= 400;
+			height *= 1000;
 		} else {
 			height =  0;
 		}

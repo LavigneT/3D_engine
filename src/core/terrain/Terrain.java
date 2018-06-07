@@ -18,7 +18,7 @@ import core.utils.ImageLoader;
 public class Terrain {
 	
 	private TerrainConfig config = new TerrainConfig();
-	private Texture2D heightMap, texture;
+	private Texture2D heightMap, texture, normalMap;
 	private final static String BASE_PATH = "res/settings/terrain/";
 	
 	private TerrainQuadTree quadTree;
@@ -31,9 +31,9 @@ public class Terrain {
 		quadTree = new TerrainQuadTree(config);
 		shader = TerrainShader.getInstance();
 		
-		ImageLoader loader = new ImageLoader();
-		this.heightMap = loader.loadTexture3("res/heightmap/island.png", false);
-		this.texture = loader.loadTexture3("res/heightmap/islandTex.jpg", false);
+		this.heightMap = ImageLoader.loadTexture("res/heightmap/island.png", false);
+		this.texture = ImageLoader.loadTexture("res/heightmap/islandTex.jpg", false);
+		this.normalMap = ImageLoader.loadTexture("res/heightmap/normal.png", false);
 	}
 	
 	public Terrain(String file, String heightMap) {
@@ -49,6 +49,9 @@ public class Terrain {
 		
 		GL13.glActiveTexture(GL13.GL_TEXTURE1);
 		GL11.glBindTexture(GL11.GL_TEXTURE_2D, texture.getId());
+		
+		GL13.glActiveTexture(GL13.GL_TEXTURE2);
+		GL11.glBindTexture(GL11.GL_TEXTURE_2D, normalMap.getId());
 		
 		quadTree.render();
 		shader.stop();
