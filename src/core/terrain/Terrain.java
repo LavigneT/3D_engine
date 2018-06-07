@@ -1,6 +1,7 @@
 package core.terrain;
 
 import java.io.BufferedReader;
+
 import java.io.FileReader;
 import java.io.IOException;
 import java.nio.ByteBuffer;
@@ -11,9 +12,8 @@ import org.lwjgl.opengl.GL11;
 import org.lwjgl.opengl.GL13;
 
 import core.kernel.Inputs;
-import core.texture.ImageLoader;
 import core.texture.Texture2D;
-import core.utils.ImageLoader2;
+import core.utils.ImageLoader;
 
 public class Terrain {
 	
@@ -32,8 +32,8 @@ public class Terrain {
 		shader = TerrainShader.getInstance();
 		
 		ImageLoader loader = new ImageLoader();
-		this.heightMap = loader.loadTexture2("heightmap/island", false, 0);
-		this.texture = loader.loadTexture2("heightmap/islandTex", false, 1);
+		this.heightMap = loader.loadTexture3("res/heightmap/island.png", false);
+		this.texture = loader.loadTexture3("res/heightmap/islandTex.jpg", false);
 	}
 	
 	public Terrain(String file, String heightMap) {
