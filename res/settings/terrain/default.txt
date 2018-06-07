@@ -1,0 +1,14 @@
+#default terrain
+
+size 1000
+scaleY 0
+
+#lod_ranges
+lod 2000
+lod 1500
+lod 1000
+lod 500
+lod 300
+lod 100
+lod 0
+lod 0

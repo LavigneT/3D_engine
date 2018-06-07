@@ -1,0 +1,23 @@
+git init
+git status
+git config --global user.name "theo lavigne"
+git config --global email"theo.lavigne3740@gmail.com"
+git add fileName
+git add -A
+git commit -m "init"
+git log
+git branch brachName
+motrer les branches => git branch
+changer de branche => git checkout test
+
+fusionner une branche
+1 => se mettre sur la branche qui va recevoir
+2 => dire a git quelle branche on souhaite rapatrié
+<<<<<<< HEAD
+3 => optionnel, supprimé la branche
+
+git checkout master
+git merge branchName
+=======
+3 => optionnel, supprimé la branche
+>>>>>>> test
