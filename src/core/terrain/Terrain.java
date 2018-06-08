@@ -13,6 +13,7 @@ import org.lwjgl.opengl.GL13;
 
 import core.asset.Texture2D;
 import core.kernel.Inputs;
+import core.manager.GUIManager;
 import core.utils.ImageLoader;
 
 public class Terrain {

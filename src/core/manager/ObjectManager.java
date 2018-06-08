@@ -1,4 +1,4 @@
-package core.component;
+package core.manager;
 
 import java.lang.reflect.Array;
 import java.util.ArrayList;
@@ -9,6 +9,7 @@ import org.lwjgl.assimp.Assimp;
 import core.asset.Material;
 import core.asset.Model;
 import core.buffer.Mesh;
+import core.component.GameObject;
 import core.kernel.Camera;
 import core.math.Tools;
 import core.shader.ObjectShader;
