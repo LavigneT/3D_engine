@@ -19,7 +19,7 @@ public class Window {
 	private GLFWErrorCallback callback;
 	private long windowID;
 	
-	public static int WIDTH = 800, HEIGHT = 800;
+	public static int WIDTH = 1400, HEIGHT = 800;
 	
 	private Window() {
 		initWindow();

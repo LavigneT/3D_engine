@@ -11,8 +11,8 @@ import org.lwjgl.glfw.GLFW;
 import org.lwjgl.opengl.GL11;
 import org.lwjgl.opengl.GL13;
 
+import core.asset.Texture2D;
 import core.kernel.Inputs;
-import core.texture.Texture2D;
 import core.utils.ImageLoader;
 
 public class Terrain {
@@ -41,6 +41,7 @@ public class Terrain {
 	}
 	
 	public void render() {
+		GL11.glFrontFace(GL11.GL_CW);
 		shader.start();
 		shader.sharedData(this);
 		
@@ -55,6 +56,7 @@ public class Terrain {
 		
 		quadTree.render();
 		shader.stop();
+		GL11.glFrontFace(GL11.GL_CCW);
 	}
 
 	

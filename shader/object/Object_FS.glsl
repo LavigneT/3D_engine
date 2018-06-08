@@ -14,6 +14,7 @@ struct Sun {
 
 uniform Sun sun;
 uniform vec3 camPos;
+uniform sampler2D textureImage;
 
 const float shineExtent = 1;
 const float reflectivity = 1;
@@ -36,6 +37,7 @@ vec3 getSunLight(vec3 norm, Sun sun, vec3 camPos, vec3 fragPos, float shineExten
 void main()
 {
 	vec3 norm = normalize(aNormal);
+	vec3 ambient = 0.3 * sun.color;
 	vec3 sunInfluence = getSunLight(norm, sun, camPos, fragPos, shineExtent, reflectivity);
-	outputColor = vec4(0, 0, 1, 1) * vec4(sunInfluence, 1.0);
+	outputColor = texture(textureImage, pass_texCoords) * vec4(sunInfluence, 1.0);
 }

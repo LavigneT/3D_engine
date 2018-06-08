@@ -17,7 +17,7 @@ public class RenderEngine {
 	public RenderEngine() {
 		terrain = new Terrain();
 		manager = new ObjectManager();
-		sun = Sun.getInstance().setSun(new Vector3f(1, 0, 0), new Vector3f(1, 1, 1), 0f);
+		sun = Sun.getInstance().setSun(new Vector3f(1, -0.5f, 0), new Vector3f(1, 1, 1), 0.5f);
 		init();
 	}
 	
@@ -65,7 +65,7 @@ public class RenderEngine {
 	}
 	
 	public static void init() {
-		GL11.glFrontFace(GL11.GL_CW);
+		GL11.glFrontFace(GL11.GL_CCW);
 		GL11.glEnable(GL11.GL_CULL_FACE);
 		GL11.glCullFace(GL11.GL_BACK);
 		GL11.glEnable(GL11.GL_DEPTH_TEST);     	

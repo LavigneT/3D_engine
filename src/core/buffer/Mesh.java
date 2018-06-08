@@ -12,23 +12,25 @@ import java.util.ArrayList;
 import org.joml.Vector2f;
 import org.joml.Vector3f;
 import org.lwjgl.BufferUtils;
+import org.lwjgl.assimp.Assimp;
 import org.lwjgl.opengl.GL11;
 import org.lwjgl.opengl.GL13;
 import org.lwjgl.opengl.GL15;
 import org.lwjgl.opengl.GL20;
 import org.lwjgl.opengl.GL30;
 
-import core.texture.Texture2D;
+import core.asset.Material;
+import core.asset.Texture2D;
 import core.utils.BufferUt;
 
 public class Mesh implements VBO {
 	
-	private ArrayList<Texture2D> textures = new ArrayList<>();
-	
 	private int vaoID, vboID, iboID, size;
+	private Material material;
 
-	public Mesh(float[] data, int[] indices) {
+	public Mesh(float[] data, int[] indices, Material material) {
 		this.size = indices.length;
+		this.material = material;
 		
 		build(data, indices);
 	}
@@ -67,6 +69,10 @@ public class Mesh implements VBO {
 		GL20.glEnableVertexAttribArray(1);
 		GL20.glEnableVertexAttribArray(2);
 		
+		//texture
+		GL13.glActiveTexture(GL13.GL_TEXTURE0);
+		GL11.glBindTexture(GL11.GL_TEXTURE_2D, material.bindTexture(Assimp.aiTextureType_DIFFUSE));
+		
 		GL11.glDrawElements(GL11.GL_TRIANGLES, size, GL11.GL_UNSIGNED_INT, 0);
 		
 		GL20.glDisableVertexAttribArray(0);
@@ -83,5 +89,16 @@ public class Mesh implements VBO {
 		glDeleteVertexArrays(vaoID);
 		glBindVertexArray(0);
 	}
+
+	
+	public Material getMaterial() {
+		return material;
+	}
+
+	public void setMaterial(Material material) {
+		this.material = material;
+	}
+	
+	
 
 }

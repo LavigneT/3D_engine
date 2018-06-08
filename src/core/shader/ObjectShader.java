@@ -36,6 +36,7 @@ public class ObjectShader extends ShaderProgram {
 		addUniform("sun.direction");
 		
 		addUniform("camPos");
+		addUniform("textureImage");
 	}
 	
 	public void update(Matrix4f proj, Matrix4f world, Matrix4f view) {
@@ -49,6 +50,8 @@ public class ObjectShader extends ShaderProgram {
 		loadFloat("sun.ambientStrengh", sun.getAmbient());
 		
 		loadVector("camPos", Camera.getCamera().getPosition());
+		
+		loadInt("textureImage", 0);
 	}
 
 }

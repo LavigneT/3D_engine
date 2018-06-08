@@ -10,7 +10,7 @@ import org.lwjgl.opengl.GL14;
 import org.lwjgl.opengl.GL30;
 import org.lwjgl.stb.STBImage;
 
-import core.texture.Texture2D;
+import core.asset.Texture2D;
 
 public class ImageLoader {
 	
@@ -47,7 +47,7 @@ public class ImageLoader {
 					GL11.GL_RGB, GL11.GL_UNSIGNED_BYTE, buffer);
 			
 		} else {
-			throw new IllegalStateException("Format not supported");
+			System.err.println("Unsupported format : " + filename);
 		}
 
 		if(mitMap) {
