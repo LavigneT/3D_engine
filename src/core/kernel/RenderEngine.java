@@ -21,8 +21,6 @@ public class RenderEngine {
 		init();
 	}
 	
-
-	
 	public void render() {
 		
 		prepare();
@@ -30,9 +28,6 @@ public class RenderEngine {
 		manager.render();
 		
 	}
-	
-	
-
 
 
 	public void update() {

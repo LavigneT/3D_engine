@@ -91,19 +91,39 @@ public class Model {
 			}
 		}
 		
+		int[] indicesArray = new int[indices.size()];
+		for(int i = 0; i < indices.size(); i++) {
+			indicesArray[i] = indices.get(i);
+		}
 		
 		if (mesh.mMaterialIndex()  >= 0) {
+			
+			int[] textureTypes = {
+					Assimp.aiTextureType_AMBIENT,
+					Assimp.aiTextureType_DIFFUSE,
+					Assimp.aiTextureType_DISPLACEMENT,
+					Assimp.aiTextureType_EMISSIVE,
+					Assimp.aiTextureType_HEIGHT,
+					Assimp.aiTextureType_LIGHTMAP, 
+					Assimp.aiTextureType_NONE,
+					Assimp.aiTextureType_NORMALS, 
+					Assimp.aiTextureType_OPACITY,
+					Assimp.aiTextureType_REFLECTION, 
+					Assimp.aiTextureType_SHININESS,
+					Assimp.aiTextureType_SPECULAR,
+					Assimp.aiTextureType_UNKNOWN
+			};
+			
 			AIMaterial material = AIMaterial.create(scene.mMaterials().get(mesh.mMaterialIndex()));
 			
 			AIColor4D colour = AIColor4D.create();
 			
 		    AIString path = AIString.calloc();
-		    Assimp.aiGetMaterialTexture(material, aiTextureType_DIFFUSE, 0, path, (IntBuffer) null, null, null, null, null, null);
+		    Assimp.aiGetMaterialTexture(material, Assimp.aiTextureType_DIFFUSE, 0, path, (IntBuffer) null, null, null, null, null, null);
 		    String textPath = path.dataString();
 		    Texture2D texture = null;
 		    if(textPath != null && textPath.length() > 0)  {
-		    	
-		    	
+		    	System.out.println(textPath);
 		    }
 		    
 		    AIColor4D color = AIColor4D.create();
@@ -119,10 +139,7 @@ public class Model {
 		    
 		}
 		
-		int[] indicesArray = new int[indices.size()];
-		for(int i = 0; i < indices.size(); i++) {
-			indicesArray[i] = indices.get(i);
-		}
+		
 		
 		return new Mesh(data, indicesArray);
 	}

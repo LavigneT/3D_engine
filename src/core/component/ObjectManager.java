@@ -22,10 +22,10 @@ public class ObjectManager {
 	private void init() {
 		
 		Model treeModel = new Model("res/obj/tree/tree.obj");
-		objects.add(new GameObject(treeModel, new Vector3f(0, 0, 0), new Vector3f(0, 0, 0), new Vector3f(8, 8, 8)));
+		//objects.add(new GameObject(treeModel, new Vector3f(0, 0, 0), new Vector3f(0, 0, 0), new Vector3f(8, 8, 8)));
 		
-		Model planeModel = new Model("res/obj/plane.obj");
-		objects.add(new GameObject(planeModel, new Vector3f(30, 0, 0), new Vector3f(0, 0, 0), new Vector3f(8, 8, 8)));
+		Model planeModel = new Model("res/obj/car/L200-OBJ.obj");
+		//objects.add(new GameObject(planeModel, new Vector3f(30, 0, 0), new Vector3f(0, 0, 0), new Vector3f(8, 8, 8)));
 		
 		Model nanoModel = new Model("res/obj/nanosuit/nanosuit.obj");
 		objects.add(new GameObject(nanoModel, new Vector3f(50, 30, 20), new Vector3f(0, 0, 0), new Vector3f(8, 8, 8)));

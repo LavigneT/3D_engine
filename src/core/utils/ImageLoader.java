@@ -45,6 +45,9 @@ public class ImageLoader {
 		} else if(format.equals("bmp") || format.equals("jpg") || format.equals("jpeg")) {
 			GL11.glTexImage2D(GL11.GL_TEXTURE_2D, 0, GL11.GL_RGB, width, height, 0,
 					GL11.GL_RGB, GL11.GL_UNSIGNED_BYTE, buffer);
+			
+		} else {
+			throw new IllegalStateException("Format not supported");
 		}
 
 		if(mitMap) {
